@@ -21,12 +21,14 @@ function initialize(lat,lon) {
 }
 
 $(document).ready(function(e) {
-	document.addEventListener("deviceready",function(){
-    navigator.geolocation.getCurrentPosition(function(p){
-		initialize( p.coords.latitude,p.coords.longitude);
-		
-		},function(err){
-			navigator.notification.alert("Error: "+err.code,null,"Geolocalizacion","Aceptar");
+	document.addEventListener("deviceready",function()
+	{
+		navigator.geolocation.getCurrentPosition(
+		function(p){
+		initialize(p.coords.latitude,p.coords.longitude);
+		},
+		function(err){
+			navigator.notification.alert("Error:"+err.code,null,"Geolocalizacion","Aceptar");
 	});
 	
 	},false);
